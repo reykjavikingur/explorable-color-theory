@@ -1,0 +1,63 @@
+.color-cube {
+	
+	$panel-size: 256px;
+	
+	display: block;
+	
+	&__input {
+		display: inline-block;
+		
+		input {
+			width: 4em;
+		}
+	}
+	
+	&__rgb-string {
+		display: block;
+	}
+	
+	&__container {
+		display: block;
+		perspective: 1000px;
+		position: relative;
+		width: $panel-size * 2;
+		height: $panel-size * 2;
+	}
+	
+	&__box {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		transform-style: preserve-3d;
+		transform: translateZ(-$panel-size) rotateX(-45deg) rotateY(-45deg);
+	}
+	
+	.panel {
+		margin: 0;
+		left: $panel-size / 2;
+		top: $panel-size / 2;
+		width: $panel-size;
+		height: $panel-size;
+		display: block;
+		position: absolute;
+		
+		// top
+		&--rg {
+			transform: rotateX(90deg) translateZ($panel-size / 2);
+			canvas {
+				transform: scaleX(-1) scaleY(-1);
+			}
+		}
+		// right
+		&--rb {
+			transform: rotateY(90deg) translateZ($panel-size / 2);
+		}
+		// front
+		&--gb {
+			transform: rotateY(0deg) translateZ($panel-size / 2);
+			canvas {
+				transform: scaleX(-1);
+			}
+		}
+	}
+}
