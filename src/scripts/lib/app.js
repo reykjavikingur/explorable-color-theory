@@ -1,4 +1,4 @@
-require('./canvas.component');
+require('./color-cube-slice.component');
 
 const app = new Vue({
     el: 'main'
