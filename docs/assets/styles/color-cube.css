@@ -1,0 +1,99 @@
+.color-cube {
+  display: block;
+}
+
+.color-cube__input {
+  display: inline-block;
+}
+
+.color-cube__input input {
+  width: 4em;
+}
+
+.color-cube__rgb-string {
+  display: block;
+}
+
+.color-cube__container {
+  display: block;
+  perspective: 1000px;
+  position: relative;
+  width: 60vw;
+  height: 60vw;
+}
+
+.color-cube__box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(-30vw);
+  transition: transform;
+  animation: box-revolve 100s infinite linear;
+}
+
+.color-cube .panel {
+  margin: 0;
+  left: 15vw;
+  top: 15vw;
+  width: 30vw;
+  height: 30vw;
+  display: block;
+  position: absolute;
+}
+
+.color-cube .panel canvas {
+  width: 30vw;
+  height: 30vw;
+}
+
+.color-cube .panel--top {
+  transform: rotateX(90deg) translateZ(15vw);
+}
+
+.color-cube .panel--bottom {
+  transform: rotateX(-90deg) translateZ(15vw);
+}
+
+.color-cube .panel--right {
+  transform: rotateY(90deg) translateZ(15vw);
+}
+
+.color-cube .panel--left {
+  transform: rotateY(-90deg) translateZ(15vw);
+}
+
+.color-cube .panel--front {
+  transform: rotateY(0deg) translateZ(15vw);
+}
+
+.color-cube .panel--back {
+  transform: rotateY(180deg) translateZ(15vw);
+}
+
+.color-cube .panel--top canvas {
+  transform: scaleX(-1) scaleY(-1);
+}
+
+.color-cube .panel--bottom canvas {
+  transform: scaleX(-1) scaleY(1);
+}
+
+.color-cube .panel--left canvas {
+  transform: scaleX(-1) scaleY(1);
+}
+
+.color-cube .panel--front canvas {
+  transform: scaleX(-1);
+}
+
+@keyframes box-revolve {
+  0% {
+    transform: rotateX(0turn) rotateY(-0.125turn);
+  }
+  100% {
+    transform: rotateX(-2turn) rotateY(-11.125turn);
+  }
+}
+
+/*# sourceMappingURL=color-cube.css.map */

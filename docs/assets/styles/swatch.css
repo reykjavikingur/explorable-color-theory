@@ -1,0 +1,14 @@
+.swatch-container {
+  border: 1px solid white;
+  width: 4em;
+  height: 4em;
+  margin: 1em;
+}
+
+.swatch-container .swatch {
+  border: 1px solid black;
+  width: 4em;
+  height: 4em;
+}
+
+/*# sourceMappingURL=swatch.css.map */
