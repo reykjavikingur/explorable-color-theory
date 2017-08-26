@@ -1,3 +1,5 @@
+const Color = require('color');
+
 const template = `
 <div class="rgb-editor editor">
     <div class="editor__input">
@@ -16,6 +18,7 @@ const template = `
         &nbsp;
         </div>
     </div>
+    <div class="editor__output">{{hslString}}</div>
 </div>
 `;
 
@@ -26,8 +29,36 @@ const component = Vue.component('fw-rgb-editor', {
         return {
             r: 0,
             g: 0,
-            b: 0
+            b: 0,
+            hslString: 'hsl(?, ?, ?)'
         };
+    },
+
+    mounted: function(){
+        this.convert();
+    },
+
+    watch: {
+        r: function (r) {
+            this.convert();
+        },
+        g: function (g) {
+            this.convert();
+        },
+        b: function (b) {
+            this.convert();
+        }
+    },
+
+    methods: {
+        convert: function () {
+            let r = parseInt(this.r);
+            let g = parseInt(this.g);
+            let b = parseInt(this.b);
+            let color = Color.rgb(r, g, b).hsl();
+            let [h, s, l] = color.color.map(c => Math.round(c));
+            this.hslString = 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
+        }
     }
 });
 
