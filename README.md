@@ -9,3 +9,6 @@ Explorable explanations of color theory with interactive visualizations to demon
 * `npm install`
 * `npm start`
 
+## Demo
+
+https://reykjavikingur.github.io/explorable-color-theory/
