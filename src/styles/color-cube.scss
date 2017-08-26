@@ -1,6 +1,6 @@
 .color-cube {
 	
-	$panel-size: 256px;
+	$panel-size: 30vw;
 	
 	display: block;
 	
@@ -29,7 +29,9 @@
 		height: 100%;
 		position: absolute;
 		transform-style: preserve-3d;
-		transform: translateZ(-$panel-size) rotateX(-45deg) rotateY(-45deg);
+		transform: translateZ(-$panel-size);
+		transition: transform;
+		animation: box-revolve 100s infinite linear;
 	}
 	
 	.panel {
@@ -41,23 +43,50 @@
 		display: block;
 		position: absolute;
 		
-		// top
-		&--rg {
-			transform: rotateX(90deg) translateZ($panel-size / 2);
-			canvas {
-				transform: scaleX(-1) scaleY(-1);
-			}
+		canvas {
+			width: $panel-size;
+			height: $panel-size;
 		}
-		// right
-		&--rb {
+		
+		&--top {
+			transform: rotateX(90deg) translateZ($panel-size / 2);
+		}
+		&--bottom {
+			transform: rotateX(-90deg) translateZ($panel-size / 2);
+		}
+		&--right {
 			transform: rotateY(90deg) translateZ($panel-size / 2);
 		}
-		// front
-		&--gb {
-			transform: rotateY(0deg) translateZ($panel-size / 2);
-			canvas {
-				transform: scaleX(-1);
-			}
+		&--left {
+			transform: rotateY(-90deg) translateZ($panel-size / 2);
 		}
+		&--front {
+			transform: rotateY(0deg) translateZ($panel-size / 2);
+		}
+		&--back {
+			transform: rotateY(180deg) translateZ($panel-size / 2);
+		}
+		
+		&--top canvas {
+			transform: scaleX(-1) scaleY(-1);
+		}
+		&--bottom canvas {
+			transform: scaleX(-1) scaleY(1);
+		}
+		&--left canvas {
+			transform: scaleX(-1) scaleY(1);
+		}
+		&--front canvas {
+			transform: scaleX(-1);
+		}
+	}
+}
+
+@keyframes box-revolve {
+	0% {
+		transform: rotateX(-0.125turn) rotateY(-0.125turn);
+	}
+	100% {
+		transform: rotateX(-3.125turn) rotateY(-11.125turn);
 	}
 }
