@@ -1,0 +1,12 @@
+.editor {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	
+	margin: 0 1.5em 0 0;
+	
+	&__input, &__output {
+		display: inline-flex;
+	}
+	
+}

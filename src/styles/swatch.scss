@@ -1,0 +1,15 @@
+.swatch-container {
+	
+	$swatch-size: 4em;
+	
+	border: 1px solid white;
+	width: $swatch-size;
+	height: $swatch-size;
+	margin: 1em;
+	
+	.swatch {
+		border: 1px solid black;
+		width: $swatch-size;
+		height: $swatch-size;
+	}
+}
